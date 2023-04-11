@@ -37,10 +37,10 @@ POST http://localhost:3000/register
 Content-Type: application/json
 
 {
-    "username": "utem",
+    "username": "NSF",
     "password": "123456",
-    "name": "utem",
-    "email": "utem@m.com"
+    "name": "N S",
+    "email": "b022110002@student.utem.edu.my"
 }
 
 
