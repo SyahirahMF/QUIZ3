@@ -106,6 +106,7 @@ function generatetoken(UserData)
     const token = jwt.sign(
         userData,
         'thisispassword'
+        {expiresIn: 60}
     );
     return token
 }
