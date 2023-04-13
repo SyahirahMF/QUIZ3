@@ -1,37 +1,10 @@
 
-const express = require('express')
-const app = express()
-const port = 3000
-
- app.use(express.json())
-  
-  app.post('/login', (req, res) => {
-    console.log(req.body)
-
-    res.send('login')
-  })
-
-
-app.get('/', (req, res) => {
-  res.send('Hello UTeM!')
-})
-
-app.get('/bye', (req, res) => {
-    res.send('BYE UTeM!')
-  })
-
-  app.post('/register', (req, res) => {
-    res.send('account created!')
-  })
-
- 
-
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
-
 const express = require('express')
 const app = express()
 const port = 3000
+const jwt = require('jsonwebtoken');
 
  app.use(express.json())
   
@@ -41,7 +14,8 @@ const port = 3000
     let result = login(req.body.username, 
       req.body.password)
 
-    res.send(result)
+      let token = generateToken(result)
+      res.send(token)
   })
 
 
@@ -127,6 +101,16 @@ function register(reqUsername, reqPassword, reqName, reqEmail)
     })
 }
 
+function generatetoken(UserData)
+{
+    const token = jwt.sign(
+        userData,
+        'thisispassword'
+    );
+    return token
+}
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
-})
+}
+)})
